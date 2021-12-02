@@ -9,8 +9,9 @@ import {
   Query,
 } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
-import { GetTasksFilterDto } from './dto/get-tasks-filer.dto';
-import { Task, TaskStatus } from './task.model';
+import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
+import { UpdateTaskStatusDto } from './dto/update-task.dto';
+import { Task } from './task.model';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
@@ -22,7 +23,7 @@ export class TasksController {
     // Si tenemos filtros, llamamos a getWithFilters,
     // Si no tenemos filtros, obtenemos todos
     if (Object.keys(filterDto).length) {
-        return this.tasksService.getWithFilters(filterDto);
+      return this.tasksService.getWithFilters(filterDto);
     }
     return this.tasksService.getAll();
   }
@@ -45,8 +46,11 @@ export class TasksController {
   @Patch(':id')
   updateTaskStatus(
     @Param('id') id: string,
-    @Body('status') status: TaskStatus,
+    // Cogemos el status únicamente y lo validamos con el Dto
+    @Body() updateTaskStatusDto: UpdateTaskStatusDto,
   ) {
+    console.log(id);
+    const { status } = updateTaskStatusDto;
     return this.tasksService.updateStatus(id, status);
   }
 }

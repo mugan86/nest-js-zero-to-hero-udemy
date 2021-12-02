@@ -32,6 +32,10 @@
 $ npm install
 ```
 
+## Class Validator options
+
+In this reference, we take info about class validator options: [Reference](https://github.com/typestack/class-validator#validation-decorators)
+
 ## Running the app
 
 ```bash
