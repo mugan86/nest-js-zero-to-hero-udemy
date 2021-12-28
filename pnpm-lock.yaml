@@ -33,7 +33,6 @@ specifiers:
   tsconfig-paths: ^3.10.1
   typeorm: ^0.2.41
   typescript: ^4.3.5
-  uuid: ^8.3.2
 
 dependencies:
   '@nestjs/common': 8.2.3_7b1fc936b9361df55228aaa721957d0e
@@ -47,7 +46,6 @@ dependencies:
   rimraf: 3.0.2
   rxjs: 7.4.0
   typeorm: 0.2.41_pg@8.7.1
-  uuid: 8.3.2
 
 devDependencies:
   '@nestjs/cli': 8.1.5_eslint@8.3.0
